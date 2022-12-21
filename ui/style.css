@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: hsla(225, 27%, 13%, 1);
+    color: #dad6d6;
+    padding: 10vh;
+}
+h1 {
+    margin-bottom: 10px;
+}
+hr {
+    margin: auto;
+    width: 80%;
+    margin-bottom: 15px;
+}
+#container {
+    margin: auto;
+    padding: 2vh;
+    background-color: hsla(225, 43%, 25%, 1);
+    width: 80%;
+}
+#movie {
+    display: none;
+}
+#gifCanvas {
+    display: none;
+}
+#preview {
+    width: 600px;
+    height: 500px;
+}
+#outputGif {
+    display: none;
+}

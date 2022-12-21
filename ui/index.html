@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script defer src="script.js"></script>
+    <script type="text/javascript" src="LZWEncoder.js"></script>
+    <script type="text/javascript" src="NeuQuant.js"></script>
+    <script type="text/javascript" src="GIFEncoder.js"></script>
+    <script type="text/javascript" src="b64.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="container">
+      <div id="navi">
+        <h1>Witaj w programie</h1>
+        <hr />
+        <input type="file" accept="video/*" id="upload" />
+      </div>
+      <div id="movie">
+        <video id="preview">
+          <source id="videoSource">
+        </video>
+      </div>
+      <div id="gifCanvas">
+        <canvas id="workplace"></canvas>
+      </div>
+      <div id="result">
+        <img id="outputGif" alt='Cannot open file :/' />
+      </div>
+      <div id="sauce">
+
+      </div>
+     
+    </div>
+  </body>
+</html>
