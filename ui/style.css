@@ -34,3 +34,14 @@ hr {
 #outputGif {
     display: none;
 }
+#progressBar {
+    width: 100%;
+    height: 5%;
+    margin: 2% 0px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+#download {
+    display: none;
+}
