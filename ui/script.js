@@ -3,12 +3,14 @@ const videoTag = document.querySelector("#preview");
 const inputTag = document.querySelector("#upload");
 const outputTag = document.querySelector('#outputGif');
 const progressBar = document.querySelector('#progressBar');
+const dwnlnk = document.querySelector('#download');
 var finished = true;
 
 function readVideo (event) {
     progressBar.value = 0;
     progressBar.style.display = 'block';
     outputTag.style.display = 'none';
+    dwnlnk.style.display = 'none';
     let file = inputTag.files[0];
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
@@ -24,7 +26,7 @@ function readVideo (event) {
       //document.querySelector('#movie').style.display = 'block';
       if(videoTag.getAttribute('listener') !== 'true'){
         videoTag.addEventListener('loadedmetadata', function() {
-          progressBar.max = Math.round(videoTag.duration) * 5;
+          progressBar.max = Math.round(videoTag.duration);
           var vHeight = this.videoHeight;
           var vWidth = this.videoWidth;
           if (vHeight > 400) vHeight = 400;
@@ -41,7 +43,6 @@ function readVideo (event) {
           videoTag.muted = true;
           videoTag.loop = false;
           videoTag.play();
-          console.log(Math.round(videoTag.duration))
   
           const clrSrc = () => {
             ctx.fillStyle = 'rgba(255,255,255,0)';
@@ -60,7 +61,7 @@ function readVideo (event) {
               ctx.drawImage(videoTag,0,0,vWidth,vHeight);
               frameB64Str = bitmap.toDataURL();
               encoder.addFrame(ctx);
-              progressBar.value += 1;
+              progressBar.value = Math.round(videoTag.currentTime);
               resolve();
             });
             window.requestAnimationFrame(step);
@@ -85,8 +86,6 @@ function readVideo (event) {
               let binary_gif = readableStream.getData();
               let b64Str = 'data:'+fileType+';base64,'+encode64(binary_gif);
     
-              //let dwnlnk = document.createElement('a');
-              let dwnlnk = document.querySelector('#download');
               dwnlnk.download = fileName.replace('.mp4','.gif');
               dwnlnk.href = b64Str;
               dwnlnk.style.display = 'block';
@@ -102,9 +101,7 @@ function readVideo (event) {
   
         }, false)
       }
-      
-      
-    
+
 
 
     }

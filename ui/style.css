@@ -9,6 +9,7 @@ body {
 }
 h1 {
     margin-bottom: 10px;
+    text-align: center;
 }
 hr {
     margin: auto;
@@ -33,15 +34,29 @@ hr {
 }
 #outputGif {
     display: none;
+    margin: auto;
+    width: 80%;
+    height: 80%;
 }
 #progressBar {
     width: 100%;
     height: 5%;
     margin: 2% 0px;
+    border-radius: 10px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 }
 #download {
     display: none;
+    margin: auto;
+    width: 30vw;
+    padding: 3%;
+    border: solid black 1px;
+    border-radius: 10px;
+    background-color: #4053be;
+    text-align: center;
+    font-size: 2em;
+    text-decoration: none;
+    color: #ffffff;
 }
