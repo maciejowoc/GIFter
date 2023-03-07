@@ -15,7 +15,6 @@ function readVideo (event) {
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
       let fileName = file.name;
-      let fileSize = (file.size/1024).toFixed(2);
 
       reader.onload = function(e) {
         videoSrc.src = e.target.result
@@ -23,7 +22,6 @@ function readVideo (event) {
       }.bind(this)
   
       reader.readAsDataURL(file);
-      //document.querySelector('#movie').style.display = 'block';
       if(videoTag.getAttribute('listener') !== 'true'){
         videoTag.addEventListener('loadedmetadata', function() {
           progressBar.max = Math.round(videoTag.duration);
@@ -85,8 +83,8 @@ function readVideo (event) {
               let readableStream = encoder.stream();
               let binary_gif = readableStream.getData();
               let b64Str = 'data:'+fileType+';base64,'+encode64(binary_gif);
-    
-              dwnlnk.download = fileName.replace('.mp4','.gif');
+
+              dwnlnk.download = inputTag.files[0].name.replace('.mp4','.gif');              
               dwnlnk.href = b64Str;
               dwnlnk.style.display = 'block';
               document.querySelector('#sauce').appendChild(dwnlnk);
@@ -97,7 +95,6 @@ function readVideo (event) {
               videoTag.setAttribute('listener','true');
             });
           }
-  
   
         }, false)
       }
