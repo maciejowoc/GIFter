@@ -5,6 +5,7 @@ const outputTag = document.querySelector('#outputGif');
 const progressBar = document.querySelector('#progressBar');
 const dwnlnk = document.querySelector('#download');
 const acceptedFileTypes = ['video/mp4','video/wav'];
+const overlay = document.querySelector('#hoverOverlay');
 var finished = true;
 
 function readVideo (event) {
@@ -110,27 +111,32 @@ inputTag.addEventListener('change',readVideo);
 function fileDrop(event) {
   event.stopPropagation();
   event.preventDefault();
+  fileHoverLeave();
   let dt = event.dataTransfer;
   let file = dt.files[0];
   if (!acceptedFileTypes.find(element => element == file.type)) {
-    alert('Proszę wgrać akceptowalny format wideo!');
+    alert('Please input accepted video format!');
   }
   else {
     inputTag.files = dt.files;
     var event = new Event('change');
     inputTag.dispatchEvent(event);
-    console.log('wgrano');
   }
 }
 
 function fileHover(event) {
+  overlay.style.display = 'block';
   event.stopPropagation();
   event.preventDefault();
-  console.log('Hover');
+}
+
+function fileHoverLeave() {
+  overlay.style.display = 'none';
 }
 
 document.addEventListener('dragenter', fileHover);
 document.addEventListener('dragover', fileHover);
+document.addEventListener('dragleave', fileHoverLeave);
 document.addEventListener('drop', fileDrop);
 
 

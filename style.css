@@ -32,7 +32,7 @@ hr {
     width: 80%;
     margin:  2% auto;
     padding: 2%;
-    background-color: #dad6d6;;
+    background-color: #dad6d6;
     color: hsla(225, 43%, 25%, 1);
     border-radius: 15px;
     font-size: var(--fontSize);
@@ -90,4 +90,31 @@ hr {
     #navi input {
         width: 100%;
     }
+}
+
+#hoverOverlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.9);
+    overflow-x: hidden;
+    display: none;
+}
+#hoverOverlay h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 27svh;
+    font-size: clamp(0.5rem, 1vh + 2rem, 3rem);
+}
+
+#hoverOverlay h1 #box {
+    display:block;
+    border: 5% #dad6d6;
+    padding: 10%;
+    border-style: dashed;
+    border-radius: 20px;
 }
